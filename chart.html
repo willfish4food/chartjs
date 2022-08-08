@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <!-- Here is where you pull the library chart.js into your file -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="chartInfo.js"></script>
+  </head>
+  <body>
+     <!-- they recommend you put the chart in a div. I think you can throw it in a table or iframe easy -->
+    <div>
+        <!-- This is the html version of the chart-->
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+    <!-- Here is the script to run the chart. It grabs the canvas -->
+    <script>
+      const ctx = document.getElementById('myChart').getContext('2d')
+      const labels = []
+      const data = []
+
+      for ((key, value) in chartInfo) {
+        labels.push(key)
+        data.push(value)
+        console.log(key,value)
+      }
+      const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            //values on the x axis. The colors
+          labels: labels,
+          datasets: [
+            {
+                //name of the y axis
+              label: '# of Votes',
+              data: data,
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

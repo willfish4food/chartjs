@@ -1,0 +1,1 @@
+exports.info = [{'Red': 12}, {'Blue': 19}, {'Yellow': 3}, {'Green': 5}, {'Purple': 2}, {'Orange': 3}]

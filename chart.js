@@ -6,8 +6,6 @@ const data = [];
 
 const info = infoObj.info;
 
-console.log(info)
-
 for (let i = 0; i < info.length; i++) {
     labels.push(Object.keys(info[i]));
     data.push(Object.values(info[i]));
@@ -23,7 +21,7 @@ const myChart = new Chart(ctx, {
     labels: labels,
     datasets: [
         {
-            //name of the y axis
+            //name of the y axis, values of the y axis the #s
         label: '# of Votes',
         data: data,
         backgroundColor: [
